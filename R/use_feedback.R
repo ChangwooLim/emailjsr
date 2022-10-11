@@ -10,9 +10,7 @@
 #' @param fail Message when sending mail failed
 #' @param templateParams A list
 
-use_feedback <- function(serviceId = NULL, userId = NULL, templateId = NULL,
-                         success = "E-mail Sent.", fail = "Failed",
-                         templateParams = NULL) {
+use_feedback <- function(serviceId = NULL, userId = NULL, templateId = NULL) {
   if (is.null(serviceId) | is.null(userId) | is.null(templateId)) {
     stop("Param serviceId, userId, templateId is Required.")
   }
@@ -30,6 +28,7 @@ use_feedback <- function(serviceId = NULL, userId = NULL, templateId = NULL,
         )
       ),
       includeScript("https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"),
+      # includeScript("https://example.com/fontawesome/v6.2.0/js/all.js"),
       includeCSS("feedback.css"),
       includeHTML("feedback.html"),
       includeScript("www/app.js"),
