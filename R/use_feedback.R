@@ -28,7 +28,6 @@ use_feedback <- function(serviceId = NULL, userId = NULL, templateId = NULL) {
         )
       ),
       includeScript("https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"),
-      # includeScript("https://example.com/fontawesome/v6.2.0/js/all.js"),
       includeCSS("feedback.css"),
       includeHTML("feedback.html"),
       includeScript("www/app.js"),
