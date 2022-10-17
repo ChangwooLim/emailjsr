@@ -1,16 +1,20 @@
-#' @export
 #'
+#' @title use_emailjsr
+#' @description emailjs.com R support
 #' @import glue
 #' @import htmltools
 #'
+#' @examples
+#' library(emailjsr)
+#'
+#' @rdname use_emailjsr
+#'
 #' @param serviceId emailjs.com Service Id
-#' @param userID emailjs.com User Id
+#' @param userId emailjs.com User Id
 #' @param templateId emailjs.com Template Id
-#' @param success Message when sending mail succeed
-#' @param fail Message when sending mail failed
-#' @param templateParams A list
+#' @export
 
-use_feedback <- function(serviceId = NULL, userId = NULL, templateId = NULL) {
+use_emailjsr <- function(serviceId = NULL, userId = NULL, templateId = NULL) {
   if (is.null(serviceId) | is.null(userId) | is.null(templateId)) {
     stop("Param serviceId, userId, templateId is Required.")
   }
@@ -32,6 +36,5 @@ use_feedback <- function(serviceId = NULL, userId = NULL, templateId = NULL) {
       includeHTML("feedback.html"),
       includeScript("www/app.js"),
     )
-
   )
 }
