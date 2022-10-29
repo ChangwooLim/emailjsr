@@ -1,30 +1,64 @@
 #'
-#' @title use_emailjsr
+#' @title use_emailjsr_ui
 #' @description emailjs.com R support
-#' @import httr
 #' @import shiny
-#' @importfrom shinybrowser get_width get_height
 #'
 #' @examples
+#' library(shiny)
 #' library(emailjsr)
+#' ui <- fluidPage(
+#'   use_emailjsr_ui("id")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'   emailjsr::use_emailjsr_server("id",
+#'     service_id = "Your_service_id",
+#'     template_id = "Your_template_id", user_id = "Your_user_id",
+#'     access_token = "Your_Access_Token"
+#'   )
+#' }
 #'
 #' @rdname use_emailjsr
 #'
-#' @param id Should be same to id of use_emailjsr_server
-#' @param serviceId emailjs.com Service Id
-#' @param userId emailjs.com User Id
-#' @param templateId emailjs.com Template Id
-#' @param access_token emailjs.com Access Token
+#' @param id Should be same to id of use_emailjsr_server.
+#' @param message Messege on button.
 #' @export
 
-use_emailjsr_ui <- function(id) {
+use_emailjsr_ui <- function(id, message = "Show feedback modal") {
   ns <- NS(id)
-  actionButton(ns("showmodal"), "Show feedback modal")
+  actionButton(ns("showmodal"), message)
 }
 
+#'
+#' @title use_emailjsr_server
+#' @description emailjs.com R support
+#' @import httr
+#' @import shiny
+#' @importFrom shinybrowser get_width get_height
+#' @examples
+#' library(shiny)
+#' library(emailjsr)
+#' ui <- fluidPage(
+#'   use_emailjsr_ui("id")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'   emailjsr::use_emailjsr_server("id",
+#'     service_id = "Your_service_id",
+#'     template_id = "Your_template_id", user_id = "Your_user_id",
+#'     access_token = "Your_Access_Token"
+#'   )
+#' }
+#' @param id Should be same to id of use_emailjsr_ui
+#' @param service_id emailjs.com Service Id
+#' @param user_id emailjs.com User Id
+#' @param template_id emailjs.com Template Id
+#' @param access_token emailjs.com Access Token
 #' @export
+#'
+
 use_emailjsr_server <- function(id, service_id, user_id, template_id, access_token) {
-  url = "https://api.emailjs.com/api/v1.0/email/send"
+  url <- "https://api.emailjs.com/api/v1.0/email/send"
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
 
