@@ -61,7 +61,7 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 use_emailjsr_server <- function(id, service_id, user_id, template_id, access_token, language = "en") {
   url <- "https://api.emailjs.com/api/v1.0/email/send"
 
-  i18n <- Translator$new(translation_json_path = "./i18n/translation.json")
+  i18n <- Translator$new(translation_json_path = "https://raw.githubusercontent.com/ChangwooLim/emailjsr/main/inst/i18n/translation.json")
   i18n$set_translation_language(language)
 
   moduleServer(id, function(input, output, session) {
