@@ -1,0 +1,41 @@
+{
+	"translation": [
+		{
+			"en": "Your Name",
+			"ko": "이름"
+		},
+		{
+			"en": "John Doe",
+			"ko": "홍길동"
+		},
+		{
+			"en": "Your E-mail",
+			"ko": "이메일"
+		},
+		{
+			"en": "Feedback *",
+			"ko": "피드백 *"
+		},
+		{
+			"en": "i.e: Crash when click 'generate' button. (Required)",
+			"ko": "예: '생성' 버튼을 클릭하면 크래시가 발생합니다. (필수)"
+		},
+		{
+			"en": "Feedback is essential.",
+			"ko": "피드백은 필수입니다."
+		},
+		{
+			"en": "Sent Succesfully.",
+			"ko": "성공적으로 제출되었습니다."
+		},
+		{
+			"en": "Close",
+			"ko": "닫기"
+		},
+		{
+			"en": "Submit",
+			"ko": "제출하기"
+		}
+	],
+	"languages": ["en", "ko"]
+}
