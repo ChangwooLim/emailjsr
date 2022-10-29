@@ -4,7 +4,14 @@
 \alias{use_emailjsr_server}
 \title{use_emailjsr_server}
 \usage{
-use_emailjsr_server(id, service_id, user_id, template_id, access_token)
+use_emailjsr_server(
+  id,
+  service_id,
+  user_id,
+  template_id,
+  access_token,
+  language = "en"
+)
 }
 \arguments{
 \item{id}{Should be same to id of use_emailjsr_ui}

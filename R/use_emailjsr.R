@@ -34,6 +34,7 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 #' @description emailjs.com R support
 #' @import httr
 #' @import shiny
+#' @import shiny.i18n
 #' @importFrom shinybrowser get_width get_height
 #' @examples
 #' library(shiny)
@@ -57,28 +58,35 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 #' @export
 #'
 
-use_emailjsr_server <- function(id, service_id, user_id, template_id, access_token) {
+use_emailjsr_server <- function(id, service_id, user_id, template_id, access_token, language = "en") {
   url <- "https://api.emailjs.com/api/v1.0/email/send"
+
+  i18n <- Translator$new(translation_csvs_path = "i18n/")
+  i18n$set_translation_language(language)
+
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
 
-    dataModal <- function(failed = FALSE) {
+    dataModal <- function(failed = FALSE, sent = FALSE) {
       modalDialog(
-        textInput(ns("name"), "Your Name",
-          placeholder = "Your Name"
+        textInput(ns("name"), i18n$t("Your Name"),
+          placeholder = i18n$t("John Doe")
         ),
-        textInput(ns("email"), "Your E-mail",
-          placeholder = "Your E-mail"
+        textInput(ns("email"), i18n$t("Your E-mail"),
+          placeholder = "email@example.com"
         ),
-        textAreaInput(ns("feedback"), "Feedback *",
-          placeholder = "Type down your feedback to developer. (Required)"
+        textAreaInput(ns("feedback"), i18n$t("Feedback *"),
+          placeholder = i18n$t("i.e: Crash when click 'generate' button. (Required)")
         ),
         if (failed == TRUE) {
-          span("Feedback is essential.", style = "color: red;")
+          span(i18n$t("Feedback is essential."), style = "color: red;")
+        },
+        if (sent == TRUE) {
+          span(i18n$t("Sent Succesfully."), style = "color: red;")
         },
         footer = tagList(
-          modalButton("Cancel"),
-          actionButton(ns("submit"), "Submit")
+          modalButton(i18n$t("Close")),
+          actionButton(ns("submit"), i18n$t("Submit"), style = "border-color: #0C1E20;")
         )
       )
     }
@@ -108,7 +116,7 @@ use_emailjsr_server <- function(id, service_id, user_id, template_id, access_tok
           ),
           encode = "json"
         )
-        removeModal()
+        showModal(dataModal(sent = TRUE))
       } else {
         showModal(dataModal(failed = TRUE))
       }

@@ -1,0 +1,10 @@
+key,ko
+John Doe,홍길동
+i.e: Crash when click 'generate' button. (Required),예: 생성 버튼 클릭 시 프로그램이 종료됨. (필수)
+Feedback is essential.,피드백 내용은 필수입니다.
+Sent Succesfully.,성공적으로 제출되었습니다.
+Close,닫기
+Submit,제출하기
+Your Name, 이름
+Your E-mail, 이메일
+Feedback *, 피드백 *
