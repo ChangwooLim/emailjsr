@@ -35,6 +35,10 @@
 		{
 			"en": "Submit",
 			"ko": "제출하기"
+		},
+		{
+		  "en": "Submitting Feedback",
+		  "ko": "피드백 제출 중"
 		}
 	],
 	"languages": ["en", "ko"]

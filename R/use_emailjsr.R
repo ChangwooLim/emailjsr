@@ -2,6 +2,7 @@
 #' @title use_emailjsr_ui
 #' @description emailjs.com R support
 #' @import shiny
+#' @importFrom shinybrowser detect
 #'
 #' @examples
 #' library(shiny)
@@ -35,7 +36,7 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 #' @import httr
 #' @import shiny
 #' @import shiny.i18n
-#' @importFrom shinybrowser get_width get_height
+#' @importFrom shinybrowser get_width get_height get_user_agent detect
 #' @examples
 #' library(shiny)
 #' library(emailjsr)
@@ -84,6 +85,7 @@ use_emailjsr_server <- function(id, service_id, user_id, template_id, access_tok
         if (sent == TRUE) {
           span(i18n$t("Sent Succesfully."), style = "color: red;")
         },
+        textOutput(ns("sending")),
         footer = tagList(
           modalButton(i18n$t("Close")),
           actionButton(ns("submit"), i18n$t("Submit"), style = "border-color: #0C1E20;")
@@ -97,11 +99,15 @@ use_emailjsr_server <- function(id, service_id, user_id, template_id, access_tok
 
     observeEvent(input$submit, {
       if (!(input$feedback == "")) {
+        output$sending <- renderText({
+          "Sending"
+          # span(i18n$t("Sending Message"), style = "color: red;")
+        })
         template_params <- list(
           fromName = input$name,
           message = input$feedback,
           replyTo = input$email,
-          userAgent = tryCatch(getOption("HTTPUserAgent"), error = function(e) ("UserAgent Not Available")),
+          userAgent = tryCatch(shinybrowser::get_user_agent(), error = function(e) ("UserAgent Not Available")),
           browserWidth = tryCatch(shinybrowser::get_width(), error = function(e) ("Width Not Available")),
           browserHeight = tryCatch(shinybrowser::get_height(), error = function(e) ("Height Not Available"))
         )

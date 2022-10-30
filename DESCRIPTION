@@ -9,4 +9,5 @@ License: Apache License 2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
-Imports: shiny, shinybrowser, shiny.i18n, httr
+Imports: shiny, shiny.i18n, httr
+Suggests: shinybrowser
