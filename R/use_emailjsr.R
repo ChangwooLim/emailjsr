@@ -109,8 +109,8 @@ use_emailjsr_server <- function(id, service_id, user_id, template_id, access_tok
           browserHeight = tryCatch(shinybrowser::get_height(), error = function(e) ("Height Not Available"))
         )
         withProgress(
-          message = "Sending in progress",
-          detail = "This may take a while...",
+          message = i18n$t("Subitting in progress"),
+          detail = i18n$t("This may take a while"),
           value = 0,
           {
             for (i in 1:2) {

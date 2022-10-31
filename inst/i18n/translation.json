@@ -37,8 +37,12 @@
 			"ko": "제출하기"
 		},
 		{
-		  "en": "Submitting Feedback",
-		  "ko": "피드백 제출 중"
+			"en": "Subitting in progress",
+			"ko": "제출 중"
+		},
+		{
+			"en": "This may take a while",
+			"ko": "잠시만 기다려주세요"
 		}
 	],
 	"languages": ["en", "ko"]
