@@ -23,6 +23,8 @@ use_emailjsr_server(
 \item{template_id}{emailjs.com Template Id}
 
 \item{access_token}{emailjs.com Access Token}
+
+\item{template_params}{Params passed to emailjs.com}
 }
 \description{
 emailjs.com R support

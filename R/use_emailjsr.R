@@ -56,6 +56,7 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 #' @param user_id emailjs.com User Id
 #' @param template_id emailjs.com Template Id
 #' @param access_token emailjs.com Access Token
+#' @param template_params Params passed to emailjs.com
 #' @export
 #'
 
@@ -99,10 +100,6 @@ use_emailjsr_server <- function(id, service_id, user_id, template_id, access_tok
 
     observeEvent(input$submit, {
       if (!(input$feedback == "")) {
-        output$sending <- renderText({
-          "Sending"
-          # span(i18n$t("Sending Message"), style = "color: red;")
-        })
         template_params <- list(
           fromName = input$name,
           message = input$feedback,
@@ -111,16 +108,29 @@ use_emailjsr_server <- function(id, service_id, user_id, template_id, access_tok
           browserWidth = tryCatch(shinybrowser::get_width(), error = function(e) ("Width Not Available")),
           browserHeight = tryCatch(shinybrowser::get_height(), error = function(e) ("Height Not Available"))
         )
-        POST(
-          url = url,
-          body = list(
-            service_id = service_id,
-            template_id = template_id,
-            user_id = user_id,
-            accessToken = access_token,
-            template_params = template_params
-          ),
-          encode = "json"
+        withProgress(
+          message = "Sending in progress",
+          detail = "This may take a while...",
+          value = 0,
+          {
+            for (i in 1:2) {
+              incProgress(1 / 2)
+              Sys.sleep(0.25)
+              if (i == 1) {
+                POST(
+                  url = url,
+                  body = list(
+                    service_id = service_id,
+                    template_id = template_id,
+                    user_id = user_id,
+                    accessToken = access_token,
+                    template_params = template_params
+                  ),
+                  encode = "json"
+                )
+              }
+            }
+          }
         )
         showModal(dataModal(sent = TRUE))
       } else {
