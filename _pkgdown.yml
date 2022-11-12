@@ -1,4 +1,20 @@
-url: ~
+url: https://github.com/changwoolim/emailjsr
 template:
   bootstrap: 5
+  bootswatch: flatly
+navbar:
+  structure:
+    left: [articles, reference]
+    right: [github]
+footer:
+  structure:
+    left: developed_by
+    right: built_with
+home:
+  title: emailjsr
+  description: R package for emailjs support.
 
+
+# url: ~
+# template:
+#   bootstrap: 5

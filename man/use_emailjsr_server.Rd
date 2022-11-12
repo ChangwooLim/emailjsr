@@ -27,7 +27,7 @@ use_emailjsr_server(
 \item{template_params}{Params passed to emailjs.com}
 }
 \description{
-emailjs.com R support
+emailjs.com R support with preset modal
 }
 \examples{
 library(shiny)

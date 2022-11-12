@@ -1,6 +1,6 @@
 #'
 #' @title use_emailjsr_ui
-#' @description emailjs.com R support
+#' @description emailjs.com R support with preset modal
 #' @import shiny
 #' @importFrom shinybrowser detect
 #'
@@ -32,7 +32,7 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 
 #'
 #' @title use_emailjsr_server
-#' @description emailjs.com R support
+#' @description emailjs.com R support with preset modal
 #' @import httr
 #' @import shiny
 #' @import shiny.i18n
