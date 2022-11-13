@@ -1,12 +1,11 @@
 URL: https://changwoolim.github.io/emailjsr/, https://github.com/ChangwooLim/emailjsr
 
 development:
-  mode: auto
+  mode: release
 
 authors:
   Changwoo Lim:
     href: https://github.com/ChangwooLim
-
 
 template:
   bootstrap: 5
