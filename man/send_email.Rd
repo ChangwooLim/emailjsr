@@ -24,7 +24,7 @@ send_email(
 \item{access_token}{emailjs.com Access Token or Private Key. Default is NULL in case of you don't use access token.}
 }
 \description{
-emailjs.com R support
+Send email using emailjs service.
 }
 \note{
 You should allow EmailJS API for non-browser applications.

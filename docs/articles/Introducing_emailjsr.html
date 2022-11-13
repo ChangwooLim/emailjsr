@@ -81,8 +81,70 @@
 <div class="section level2">
 <h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h2>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'changwoolim/emailjsr'</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## From github: latest version</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'changwoolim/emailjsr'</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="before-use">Before Use<a class="anchor" aria-label="anchor" href="#before-use"></a>
+</h2>
+<p>Before use, you should sign up at <a href="https://emailjs.com" class="external-link">emailjs.com</a>, and make your template.
+Please sure that you should not expose your user id, access token, and
+so on.</p>
+<div class="section level3">
+<h3 id="allow-non-browser-applications">Allow non-Browser Applications<a class="anchor" aria-label="anchor" href="#allow-non-browser-applications"></a>
+</h3>
+<p>You should allow EmailJS API for non-browser applications.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="user-agent-browser-width-and-height">User-agent, Browser width and height<a class="anchor" aria-label="anchor" href="#user-agent-browser-width-and-height"></a>
+</h2>
+<p>If you want to detect User-agent, Browser width and height, type down
+<code><a href="https://rdrr.io/pkg/shinybrowser/man/detect.html" class="external-link">shinybrowser::detect()</a></code> on your ui.</p>
+</div>
+<div class="section level2">
+<h2 id="use-with-your-own-application">Use with your own application<a class="anchor" aria-label="anchor" href="#use-with-your-own-application"></a>
+</h2>
+<pre><code><span><span class="fu">emailjsr</span><span class="fu">::</span><span class="fu"><a href="../reference/send_email.html">send_email</a></span><span class="op">(</span><span class="va">service_id</span>, <span class="va">user_id</span>, <span class="va">template_id</span>, <span class="va">template_params</span>, <span class="va">access_token</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="using-preset-modal">Using Preset modal<a class="anchor" aria-label="anchor" href="#using-preset-modal"></a>
+</h2>
+<p>When you use ‘<a href="https://shiny.rstudio.com" class="external-link">shiny</a>’, you can
+use preset modal.</p>
+<pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">emailjsr</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/use_emailjsr.html">use_emailjsr_ui</a></span><span class="op">(</span><span class="st">"id"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">emailjsr</span><span class="fu">::</span><span class="fu"><a href="../reference/use_emailjsr_server.html">use_emailjsr_server</a></span><span class="op">(</span><span class="st">"id"</span>,</span>
+<span>    service_id <span class="op">=</span> <span class="st">"Your_service_id"</span>,</span>
+<span>    template_id <span class="op">=</span> <span class="st">"Your_template_id"</span>,</span>
+<span>    user_id <span class="op">=</span> <span class="st">"Your_user_id"</span>,</span>
+<span>    access_token <span class="op">=</span> <span class="st">"Your_Access_Token"</span>,</span>
+<span>    language <span class="op">=</span> <span class="st">"en"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre>
+<p>Please remember you should fill your own ids, and tokens.</p>
+<p>You can see button named “Show feedback modal”. This message is
+default, and you can change it. When you click, you will see modal
+below.</p>
+<p><img src="../reference/figures/modal_preset.png"></p>
+<p>In this preset, Feedback * is required. So if you don’t write down
+anything, error message will be shown. If you fill Feedback * and other
+form(if needed), just click “Submit” button. You will receive email
+right away.</p>
+</div>
+<div class="section level2">
+<h2 id="feedback">Feedback<a class="anchor" aria-label="anchor" href="#feedback"></a>
+</h2>
+<p>You can make issue at <a href="https://github.com/ChangwooLim/emailjsr/issues" class="external-link">my github
+repository</a>. Any bug report, suggestion are welcomed.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

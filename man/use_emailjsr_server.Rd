@@ -41,7 +41,8 @@ server <- function(input, output, session) {
     service_id = "Your_service_id",
     template_id = "Your_template_id",
     user_id = "Your_user_id",
-    access_token = "Your_Access_Token"
+    access_token = "Your_Access_Token",
+    language = "en"
   )
 }
 }

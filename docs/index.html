@@ -64,14 +64,62 @@
 </h1></div>
 <p><a href="https://emailjs.com" class="external-link">emailjs.com</a> support for R.</p>
 <div class="section level2">
+<h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## From github: latest version</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'changwoolim/emailjsr'</span>)</span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="before-use">Before Use<a class="anchor" aria-label="anchor" href="#before-use"></a>
 </h2>
 <p>Before use, you should sign up at <a href="https://emailjs.com" class="external-link">emailjs.com</a>, and make your template. Please sure that you should not expose your user id, access token, and so on.</p>
+<div class="section level3">
+<h3 id="allow-non-browser-applications">Allow non-Browser Applications<a class="anchor" aria-label="anchor" href="#allow-non-browser-applications"></a>
+</h3>
+<p>You should allow EmailJS API for non-browser applications.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="user-agent-browser-width-and-height">User-agent, Browser width and height<a class="anchor" aria-label="anchor" href="#user-agent-browser-width-and-height"></a>
 </h2>
 <p>If you want to detect User-agent, Browser width and height, type down <code><a href="https://rdrr.io/pkg/shinybrowser/man/detect.html" class="external-link">shinybrowser::detect()</a></code> on your ui.</p>
+</div>
+<div class="section level2">
+<h2 id="use-with-your-own-application">Use with your own application<a class="anchor" aria-label="anchor" href="#use-with-your-own-application"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>emailjsr<span class="sc">::</span><span class="fu">send_email</span>(service_id, user_id, template_id, template_params, access_token)</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="using-preset-modal">Using Preset modal<a class="anchor" aria-label="anchor" href="#using-preset-modal"></a>
+</h2>
+<p>When you use ‘<a href="https://shiny.rstudio.com" class="external-link">shiny</a>’, you can use preset modal.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emailjsr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">use_emailjsr_ui</span>(<span class="st">"id"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  emailjsr<span class="sc">::</span><span class="fu">use_emailjsr_server</span>(<span class="st">"id"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">service_id =</span> <span class="st">"Your_service_id"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">template_id =</span> <span class="st">"Your_template_id"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">user_id =</span> <span class="st">"Your_user_id"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">access_token =</span> <span class="st">"Your_Access_Token"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">language =</span> <span class="st">"en"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div>
+<p>Please remember you should fill your own ids, and tokens.</p>
+<p>You can see button named “Show feedback modal”. This message is default, and you can change it. When you click, you will see modal below.</p>
+<p><img src="reference/figures/modal_preset.png"></p>
+<p>In this preset, Feedback * is required. So if you don’t write down anything, error message will be shown. If you fill Feedback * and other form(if needed), just click “Submit” button. You will receive email right away.</p>
+</div>
+<div class="section level2">
+<h2 id="feedback">Feedback<a class="anchor" aria-label="anchor" href="#feedback"></a>
+</h2>
+<p>You can make issue at <a href="https://github.com/ChangwooLim/emailjsr/issues" class="external-link">my github repository</a>. Any bug report, suggestion are welcomed.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">

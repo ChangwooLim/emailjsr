@@ -49,7 +49,8 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 #'     service_id = "Your_service_id",
 #'     template_id = "Your_template_id",
 #'     user_id = "Your_user_id",
-#'     access_token = "Your_Access_Token"
+#'     access_token = "Your_Access_Token",
+#'     language = "en"
 #'   )
 #' }
 #' @param id Should be same to id of use_emailjsr_ui
