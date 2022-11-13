@@ -15,20 +15,23 @@ send_email(
 \arguments{
 \item{service_id}{emailjs.com Service Id}
 
-\item{user_id}{emailjs.com User Id}
+\item{user_id}{emailjs.com User Id or Public Key}
 
 \item{template_id}{emailjs.com Template Id}
 
-\item{template_params}{Params passed to emailjs.com}
+\item{template_params}{Params passed to emailjs.com. You should set template at emailjs.com in prior.}
 
-\item{access_token}{emailjs.com Access Token. Default is NULL in case of you don't use access token.}
+\item{access_token}{emailjs.com Access Token or Private Key. Default is NULL in case of you don't use access token.}
 }
 \description{
 emailjs.com R support
 }
+\note{
+You should allow EmailJS API for non-browser applications.
+}
 \examples{
 library(emailjsr)
 
-emailjsr::send_email("service_id", "user_id", "template_id", "access_token", list(name = "John Doe"))
+send_email("service_id", "user_id", "template_id", "access_token", list(name = "John Doe"))
 
 }

@@ -6,13 +6,13 @@
 #' @examples
 #' library(emailjsr)
 #'
-#' emailjsr::send_email("service_id", "user_id", "template_id", "access_token", list(name = "John Doe"))
+#' send_email("service_id", "user_id", "template_id", "access_token", list(name = "John Doe"))
 #'
 #' @param service_id emailjs.com Service Id
-#' @param user_id emailjs.com User Id
+#' @param user_id emailjs.com User Id or Public Key
 #' @param template_id emailjs.com Template Id
-#' @param template_params Params passed to emailjs.com
-#' @param access_token emailjs.com Access Token. Default is NULL in case of you don't use access token.
+#' @param template_params Params passed to emailjs.com. You should set template at emailjs.com in prior.
+#' @param access_token emailjs.com Access Token or Private Key. Default is NULL in case of you don't use access token.
 #' @export
 #'
 

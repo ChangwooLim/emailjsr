@@ -24,7 +24,7 @@ use_emailjsr_server(
 
 \item{access_token}{emailjs.com Access Token}
 
-\item{template_params}{Params passed to emailjs.com}
+\item{language}{Language of modal. "en" for English, and "ko" for Korean.}
 }
 \description{
 emailjs.com R support with preset modal
@@ -39,7 +39,8 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   emailjsr::use_emailjsr_server("id",
     service_id = "Your_service_id",
-    template_id = "Your_template_id", user_id = "Your_user_id",
+    template_id = "Your_template_id",
+    user_id = "Your_user_id",
     access_token = "Your_Access_Token"
   )
 }

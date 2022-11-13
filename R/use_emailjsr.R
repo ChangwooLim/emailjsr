@@ -47,7 +47,8 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 #' server <- function(input, output, session) {
 #'   emailjsr::use_emailjsr_server("id",
 #'     service_id = "Your_service_id",
-#'     template_id = "Your_template_id", user_id = "Your_user_id",
+#'     template_id = "Your_template_id",
+#'     user_id = "Your_user_id",
 #'     access_token = "Your_Access_Token"
 #'   )
 #' }
@@ -56,7 +57,7 @@ use_emailjsr_ui <- function(id, message = "Show feedback modal") {
 #' @param user_id emailjs.com User Id
 #' @param template_id emailjs.com Template Id
 #' @param access_token emailjs.com Access Token
-#' @param template_params Params passed to emailjs.com
+#' @param language Language of modal. "en" for English, and "ko" for Korean.
 #' @export
 #'
 

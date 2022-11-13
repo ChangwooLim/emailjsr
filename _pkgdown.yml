@@ -2,6 +2,9 @@ url: https://github.com/changwoolim/emailjsr
 template:
   bootstrap: 5
   bootswatch: flatly
+authors:
+  Changwoo Lim:
+    href: https://github.com/changwoolim
 navbar:
   structure:
     left: [articles, reference]
@@ -13,8 +16,18 @@ footer:
 home:
   title: emailjsr
   description: R package for emailjs support.
+  links:
+  - text: Zarathu Co., Ltd.
+    href: https://zarathu.com
 
+articles:
+- title: Use emailjs from R
+  navbar: Use emailjs from R
+  contents:
+  - extending-ggplot2
+  - ggplot2-in-packages
+  - profiling
 
-# url: ~
-# template:
-#   bootstrap: 5
+navbar:
+  structure:
+    left: [articles]

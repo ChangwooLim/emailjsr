@@ -2,9 +2,7 @@
 
 export(send_email)
 export(use_emailjsr_server)
-export(use_emailjsr_server2)
 export(use_emailjsr_ui)
-export(use_emailjsr_ui2)
 import(httr)
 import(shiny)
 import(shiny.i18n)
