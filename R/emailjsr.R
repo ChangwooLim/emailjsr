@@ -1,6 +1,6 @@
 #'
 #' @title send_email
-#' @description emailjs.com R support
+#' @description Send email using emailjs service.
 #' @import httr
 #' @note You should allow EmailJS API for non-browser applications.
 #' @examples

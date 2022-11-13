@@ -15,3 +15,4 @@ R/use_emailjsr2.R
 ^CRAN-RELEASE$
 ^\.github$
 ^CRAN-SUBMISSION$
+docs/

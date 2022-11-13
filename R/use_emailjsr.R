@@ -118,17 +118,7 @@ use_emailjsr_server <- function(id, service_id, user_id, template_id, access_tok
               incProgress(1 / 2)
               Sys.sleep(0.25)
               if (i == 1) {
-                POST(
-                  url = url,
-                  body = list(
-                    service_id = service_id,
-                    template_id = template_id,
-                    user_id = user_id,
-                    accessToken = access_token,
-                    template_params = template_params
-                  ),
-                  encode = "json"
-                )
+                send_email(service_id, user_id, template_id, template_params, access_token)
               }
             }
           }
