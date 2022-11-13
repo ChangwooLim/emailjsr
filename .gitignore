@@ -47,5 +47,4 @@ rsconnect/
 
 .DS_Store
 inst/*.R
-docs
 inst/doc
