@@ -79,10 +79,11 @@ use_emailjsr_server2 <- function(id, service_id, user_id, template_id, access_to
 
     dataModal <- function(failed = FALSE, sent = FALSE) {
       if (is.null(modal)) {
-        modal <- list(c("text", "name", "Your Name", "John Doe", required = FALSE),
-                      c("text", "email", "Your E-mail", "Jemail@example.come", required = FALSE),
-                      c("textArea", "feedback", "Feedback *", "i.e: Crash when click 'generate' button. (Required)", required = TRUE)
-                      )
+        modal <- list(
+          c("text", "name", "Your Name", "John Doe", required = FALSE),
+          c("text", "email", "Your E-mail", "Jemail@example.come", required = FALSE),
+          c("textArea", "feedback", "Feedback *", "i.e: Crash when click 'generate' button. (Required)", required = TRUE)
+        )
         modalDialog(
           if (failed == TRUE) {
             span(i18n$t("Feedback is essential."), style = "color: red;")
@@ -97,7 +98,7 @@ use_emailjsr_server2 <- function(id, service_id, user_id, template_id, access_to
           )
         )
       }
-        # c(Type, id, Desc, Placeholder)
+      # c(Type, id, Desc, Placeholder)
       modalDialog(
         for (component in modal) {
           switch(component[1],
@@ -110,7 +111,6 @@ use_emailjsr_server2 <- function(id, service_id, user_id, template_id, access_to
           )
         }
       )
-
     }
 
     observeEvent(input$showmodal, {

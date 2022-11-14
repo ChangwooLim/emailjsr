@@ -16,17 +16,17 @@
 #' @export
 #'
 
-send_email <- function(service_id, user_id, template_id, template_params = list(), access_token = NULL){
+send_email <- function(service_id, user_id, template_id, template_params = list(), access_token = NULL) {
   url <- "https://api.emailjs.com/api/v1.0/email/send"
 
-  body = list(
+  body <- list(
     service_id = service_id,
     user_id = user_id,
     template_id = template_id,
     template_params = template_params
   )
 
-  if(!is.null(access_token)) {
+  if (!is.null(access_token)) {
     body <- append(body, list(accessToken = access_token))
   }
 
