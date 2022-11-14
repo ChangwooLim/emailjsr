@@ -16,3 +16,4 @@ R/use_emailjsr2.R
 ^\.github$
 ^CRAN-SUBMISSION$
 docs/
+.gitignore

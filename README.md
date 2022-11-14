@@ -1,6 +1,6 @@
 # emailjsr
 
-[emailjs.com](https://emailjs.com) support for R.
+[emailjs.com](https://www.emailjs.com/) support for R.
 
 ## Install
 
@@ -9,7 +9,7 @@
 
 ## Before Use
 
-Before use, you should sign up at [emailjs.com](https://emailjs.com), and make your template. Please sure that you should not expose your user id, access token, and so on.
+Before use, you should sign up at [emailjs.com](https://www.emailjs.com/), and make your template. Please sure that you should not expose your user id, access token, and so on.
 
 ### Allow non-Browser Applications
 

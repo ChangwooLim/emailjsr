@@ -1,12 +1,12 @@
 Package: emailjsr
-Title: 'emailjs' support for R
+Title: 'emailjs' Support for R
 Version: 0.0.1.9000
 Authors@R: 
     person("Changwoo", "Lim", , "limcw@zarathu.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-1949-0639"))
 Maintainer: Changwoo Lim <limcw@zarathu.com>
-Description: This package is for 'emailjs' service. This package is not emailjs.com official.
-License: Apache License 2.0 
+Description: Use 'emailjs' API easily in R. This package is not official.
+License: MIT License
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
