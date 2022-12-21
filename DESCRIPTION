@@ -1,15 +1,15 @@
 Package: emailjsr
 Title: 'emailjs' Support for R
-Version: 0.0.1.9000
+Version: 0.0.2
 Authors@R: 
     person("Changwoo", "Lim", , "limcw@zarathu.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-1949-0639"))
 Maintainer: Changwoo Lim <limcw@zarathu.com>
-Description: Use 'emailjs' API easily in R. This package is not official.
-License: MIT License
+Description: Use 'emailjs' API easily in R. This package is not official. <https://www.emailjs.com/docs/rest-api/send/>.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.2
 Imports: shiny, shiny.i18n, httr, shinybrowser
 Suggests: 
     knitr,

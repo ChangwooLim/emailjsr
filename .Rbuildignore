@@ -10,7 +10,6 @@ R/use_emailjsr2.R
 ^.*\.Rproj$
 ^\.travis\.yml$
 ^README\.Rmd$
-^LICENSE$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
 ^\.github$

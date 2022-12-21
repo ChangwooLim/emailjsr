@@ -48,3 +48,5 @@ rsconnect/
 .DS_Store
 inst/*.R
 inst/doc
+
+LICENSE
